@@ -100,10 +100,8 @@ app.use("/fashion",fashionRouter);
 app.use("/birthday",birthdayRouter);
 app.use("/",userRouter);
 
+
 app.get("/", (req, res) => {
-  res.send("Server Working Fine");
-});
-app.get("/home", (req, res) => {
   res.render("pages/home.ejs");
 })
 app.get("/service", (req, res) => {
