@@ -19,7 +19,7 @@ module.exports.signup = async (req,res,next)=>{
                 return next(err);
             }
         req.flash("success","Welcome to Dhphotography");
-        res.redirect("/home");
+        res.redirect("/");
         });
     }catch(err){
         req.flash("error",err.message);
@@ -33,7 +33,7 @@ module.exports.renderLoginForm = async(req,res)=>{
 
 module.exports.login = async(req,res)=>{
     req.flash("success","Welcome Back to Dhphotography");
-    let redirectUrl = res.locals.redirectUrl || "/home";
+    let redirectUrl = res.locals.redirectUrl || "/";
     res.redirect(redirectUrl);
     };
 
@@ -44,6 +44,6 @@ module.exports.login = async(req,res)=>{
                 return next(err);
             }
             req.flash("success","You Logged Out!!");
-            res.redirect("/home");
+            res.redirect("/");
         });
         };
