@@ -1,0 +1,102 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+<%- include("../includes/category.ejs") %>
+    <style>
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+        }
+       
+      
+        .handles{
+        margin: 7rem 0  0 2rem;
+        padding: 2rem;
+    }
+   
+    .phone{
+        color: green;
+    }
+    .email{
+        height: 1rem;
+        width: 1rem;
+    }
+    .ig{
+    color: #FF1744;
+    }
+    .fac{
+        color: #3F51B5;
+    }
+    .btn img{
+        height: 1.5rem;
+       
+    }
+    @media only screen and (max-width:680px) {
+        
+      .contact{
+        width: 100%;
+      }
+      .handles{
+        margin: 3rem 0  0  0;
+        
+        width: 100%;
+    }
+    }
+    </style>
+
+
+    <div class="contact">
+
+
+
+        <!-- <div class="row"> -->
+            <div class="col-4  col-8 col-md-4 offset-2 form">
+                <br><br>
+                <h5> <img src="/Assests/gif.gif" alt="My cool gif"> Get In Touch</h5>
+                
+                <form id="contactForm" method="" action="/contact" novalidate class="needs-validation" enctype="multipart/form-data">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control name" id="floatingInput" name = "name" placeholder="Name">
+                        <label for="floatingInput">Name</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control Email" id="floatingInput" name="email" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <textarea class="form-control message" placeholder="Leave a Msg here" name="message" id="floatingTextarea2"
+                            style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Message</label>
+                    </div>
+
+                    <br><br>
+
+
+                    <button class="btn btn-primary" type="button"  onclick="sendEmail()" >Send <img src="/Assests/send.png" ></button>
+                    <br><br>
+                </form>
+            </div>
+        <!-- </div> -->
+
+
+
+
+        <div class="handles">
+            <div class="social">
+                <p> <i class="fa-solid fa-phone phone"></i> +91 9863646492</p>
+            </div>
+            <div class="social">
+                <p> <img src="/Assests/gmail.png" class="email"> puskar@gmail.com</p>
+            </div>
+            <div class="social">
+                
+                <p> <i class="fa-brands fa-instagram ig"></i> Personal: <a href="#">Puskar Dh</a></p>
+                <p> <i class="fa-brands fa-instagram ig"></i> Dh-photography: <a href="#">Dh-Photography</a></p>
+                <p> <i class="fa-brands fa-facebook fac"> </i> Personal: <a href="#">Puskar Dh</a></p>
+                <p> <i class="fa-brands fa-facebook fac"></i> Dh-photography: <a href="#">Dh-Photography</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="/js/sendMail.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

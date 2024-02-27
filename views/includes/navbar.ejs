@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light border-bottom sticky-top">
+    <div class="container-fluid ">
+        <a class="navbar-brand" href="/home"><img src="/Assests/favicon.ico" class="logo"><span>Dh-Photography</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+            <div class="navbar-nav ">
+            </div>
+
+            <div class="navbar-nav ms-auto d-flex align-items-center bg-light ">
+               
+                    <a class="nav-link" href="/home"><b>Home</b></a>
+                    <a class="nav-link" href="/service"><b>Service</b></a>
+                    <a class="nav-link" href="/contact"><b>Contact</b></a>
+                   
+                   
+                    <% if(currUser && currUser.role == "admin"){%>
+                    <a class="nav-link" href="/admin"><b>Dashboard</b></a>
+                    <%}%>
+  
+               
+                <%if(!currUser){%>
+                <a class="nav-link" href="/signup"><b>SignUp</b></a>
+                <a class="nav-link" href="/login"><b>Login</b></a>
+                <%}%>
+                <% if(currUser){%>
+                <a class="nav-link" href="/logout"><b>Logout</b></a>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</nav>

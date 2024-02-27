@@ -1,0 +1,528 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+}
+
+.container {
+    flex: 1;
+}
+
+
+.navbar {
+    height: 5rem;
+
+}
+
+.navbar-brand .logo {
+    height: 4rem;
+    padding: 0.25rem;
+    border-radius: 500px;
+}
+
+.nav-link:hover {
+    border-bottom: 1px solid blue;
+}
+
+.f-info {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ebebeb;
+    justify-content: space-evenly;
+
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.f-info-for-brand {
+    /* width: 30%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+
+.socials i {
+    margin-right: 1rem;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+
+/* Home.ejs */
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.first {
+    margin-top: 0.2rem;
+}
+
+.second {
+    width: 75.06rem;
+    margin-top: 2rem;
+}
+
+
+
+.disc {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.exp {
+    width: 500px;
+}
+
+.exp h3 {
+    font-style: italic;
+}
+
+
+.box {
+    margin: 4px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-text {
+    width: 220px;
+    text-align: center;
+}
+
+.box img {
+    box-shadow: 5px 5px 5px grey;
+    width: 18rem;
+    height: 20rem;
+    margin-left: 1rem;
+}
+
+.box img:hover {
+    box-shadow: 10px 5px 5px grey;
+}
+
+
+.box .img-btw {
+    margin-top: 4.6rem;
+    width: 18rem;
+    height: 25rem;
+    box-shadow: 10px 5px 5px grey;
+}
+
+.button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.button button {
+    background-color: transparent;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    font-weight: 300;
+    border-radius: 500px;
+    margin-top: 2rem;
+}
+
+.button button:hover {
+    background-color: rgb(25, 252, 252);
+}
+
+.work {
+    margin-left: 3rem;
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.category span {
+    margin-top: 3rem;
+    border: 2px solid black;
+    padding: 1rem 2.5rem 1rem 2.5rem;
+    border-radius: 500px;
+    font-weight: 500;
+    background-color: rgb(166, 240, 240);
+}
+
+.third {
+    width: 75.06rem;
+    background-color: rgb(189, 234, 249);
+    margin: 2rem 0 2rem 0;
+}
+
+.myself {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.myself span {
+    padding-top: 2rem;
+    width: 230px;
+    text-align: center;
+    align-items: center;
+
+}
+
+
+.myself img {
+    padding-bottom: 2rem;
+    height: 370px;
+    width: 250px;
+}
+
+
+@media only screen and (max-width:800px) {
+
+    .navbar-brand .logo {
+        height: 3rem;
+        width: 3rem;
+
+    }
+
+    .first {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .exp {
+        display: block;
+        width: 80%;
+    }
+
+    .exp h3 {
+        font-size: 1.03rem;
+    }
+
+    .box {
+        margin-top: 2rem;
+    }
+
+    .box-text {
+        width: 100px;
+        text-align: center;
+        font-size: x-small;
+        position: absolute;
+        top: 22rem
+    }
+
+    .box img {
+        box-shadow: 5px 5px 5px grey;
+        width: 120px;
+        height: 120px;
+        margin: 0;
+    }
+
+    .box img:hover {
+        box-shadow: 10px 5px 5px grey;
+    }
+
+
+    .box .img-btw {
+        position: relative;
+        bottom: 8rem;
+        width: 120px;
+        height: 160px;
+        box-shadow: 10px 5px 5px grey;
+    }
+
+
+
+    .second {
+
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .button button {
+        padding: 0.25rem 1rem 0.25rem 1rem;
+        margin: 0;
+
+    }
+
+    .third {
+        background-color: rgb(189, 234, 249);
+        margin-bottom: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .category span {
+        width: 280px;
+        height: 50px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .myself img {
+        height: 16rem;
+        width: 10rem;
+    }
+
+    .myself span {
+        font-size: small;
+    }
+
+    .f-info-for-brand {
+        width: 100vw;
+    }
+
+}
+
+.cap:hover {
+    opacity: 0.8;
+}
+
+/* Service the category part */
+
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+
+}
+
+.filter {
+    display: flex;
+    margin-top: 1rem;
+    text-align: center;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    opacity: 0.7;
+
+}
+
+.filter div img {
+    margin-right: 0.2rem;
+    height: 1.9rem;
+}
+
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.filter a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9rem;
+}
+
+.filter {
+    text-decoration: none;
+    color: #000;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.dropdown-toggle::after {
+    margin-top: 10px;
+
+}
+
+.row .column {
+    flex: 25%;
+    width: auto;
+    overflow: hidden;
+    padding: 0px 4px;
+    height: 100%;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.row .column img {
+    margin-top: 2%;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 1rem;
+    transition: 0.5s ease-out;
+}
+
+.column .a-group {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.column .a-group a {
+    text-decoration: none;
+    border: 1px solid red;
+    background: linear-gradient(rgb(16, 223, 216), whitesmoke);
+    padding: 0 0.7rem 0 0.7rem;
+    border-radius: 1rem;
+    color: black;
+    font-style: italic;
+}
+
+.btn {
+    background-color: rgb(79, 253, 253);
+}
+
+.container-fluid h3 {
+    text-decoration: underline;
+    color: rgb(0, 0, 0);
+
+}
+
+.card {
+    box-shadow: 5px 2px 8px 2px grey;
+}
+
+@media screen and (max-width:800px) {
+    .filter {
+        display: block;
+
+    }
+
+    .row .column {
+        flex: 50%;
+    }
+
+}
+
+@media only screen and (max-width:800px) {
+    #filters {
+        width: 100%;
+    }
+
+    .row .column {
+        flex: 100%;
+    }
+
+    .row .column img {
+
+        filter: grayscale(0)brightness(1);
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .dropdown-toggle::after {
+        display: none;
+    }
+
+}
+
+/* Service the ellipse*/
+
+/* ellipse */
+.secondDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2rem;
+
+
+}
+
+.cube {
+    /* width: 30%; */
+    box-sizing: border-box;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    /* justify-content: end; */
+}
+
+.ellipse {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.ellipse span {
+    width: 0;
+    height: 25px;
+    border: 1px solid black;
+}
+
+.line {
+    width: 140px;
+    height: 0;
+    border: 1px solid black;
+    margin-left: 1rem;
+}
+
+.description {
+    margin-top: 1rem;
+
+}
+
+.description p {
+    width: 210px;
+    height: 54px;
+    font-size: small;
+
+}
+
+@media(max-width:700px) {
+    .line {
+        display: none;
+    }
+
+    .secondDiv {
+        flex-direction: column;
+        justify-content: start;
+        margin-left: 8%;
+    }
+
+    .main {
+        justify-content: start;
+    }
+
+    .ellipse {
+        margin-top: 2rem;
+    }
+
+}

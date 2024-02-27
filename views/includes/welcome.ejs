@@ -1,0 +1,30 @@
+<style>
+    div {
+        margin: 0;
+    }
+
+    h6 {
+        margin: 0;
+        padding: 1rem 0.2rem;
+        font-size: 1.2rem;
+    }
+    
+    h6 span {
+        color: red;
+        text-shadow: 2px 2px 4px red;
+    }
+
+    @media (max-width:800px) {
+        h6 {
+            font-size: 0.80rem;
+        }
+    }
+</style>
+
+<%if(currUser && currUser.username.length){%>
+    <div>
+        <h6> <b>Hi! <i>
+                    <%=currUser.username%>,
+                </i> Welcome to Dh-Photography <span>&hearts;</span></b></h6>
+    </div>
+    <%}%>

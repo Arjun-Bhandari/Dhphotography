@@ -1,0 +1,32 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+<%- include("../includes/category.ejs") %>
+
+<div class="container-fluid  mt-4 mb-4">
+    <h3 class="pt-2 pb-2 text-center">Pre-wedding Images Gallery</h3>
+    <div class="row">
+
+        <% for(let image of allImages){ %>
+            <div class="column ">
+                <%if(currUser && currUser.role == "admin"){%>
+                <div class="dropdownmenu">
+                    <div class="dots" onclick="toggleDropdown(this)">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="/prewedding/<%=image._id%>/edit"> <i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                        <form method="POST" action="/prewedding/<%=image._id%>?_method=DELETE">
+                            <button><i class="fa-solid fa-trash" style="margin-right: 0.2rem;"></i>Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <%}%>
+                <img src="<%=image.image.url%>" class="card-img-top" alt="listing_img"
+                    style="height:19rem;">
+                    
+            </div>
+            <% } %>
+
+    </div>
+</div>
