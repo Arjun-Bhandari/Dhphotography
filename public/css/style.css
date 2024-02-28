@@ -100,7 +100,6 @@ body {
 .box {
     margin: 4px 0 0 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -228,7 +227,6 @@ body {
 
     .box {
         margin-top: 2rem;
-        flex-wrap:none;
     }
 
     .box-text {
@@ -314,7 +312,6 @@ body {
 
 #filters {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     width: 70%;
@@ -426,7 +423,6 @@ body {
 @media only screen and (max-width:800px) {
     #filters {
         width: 100%;
-        flex-wrap:none;
     }
 
     .row .column {
