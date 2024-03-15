@@ -22,7 +22,7 @@ module.exports.saveRedirectUrl = (req,res,next)=>{
 
 
 module.exports.isAdmin= async(req,res,next)=>{
-    if(res.locals.currUser.role != "admin")){
+    if(res.locals.currUser.role != "admin"){
         req.flash("error","You are Not the Admin");
         return res.redirect(`/`);
     };
