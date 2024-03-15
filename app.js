@@ -140,7 +140,7 @@ app.post("/", upload.single("Image[image]"), validateImage, async (req, res, nex
   }
 });
 
-app.get("/admin", (req, res) => {
+app.get("/admin",isLoggedIn,(req, res) => {
   res.render("pages/create.ejs")
 });
 
