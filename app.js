@@ -26,7 +26,7 @@ const upload = multer({ storage });
 const Image = require("./models/image.js");
 const User = require("./models/user.js");
 const userRouter = require("./routes/user.route.js")
-const { isLoggedIn, isOwner, validateImage } = require("./middleware.js");
+const { isLoggedIn, isAdmin, validateImage } = require("./middleware.js");
 
 
 const MONGO_URL = process.env.MONGO_URL;
@@ -140,7 +140,7 @@ app.post("/", upload.single("Image[image]"), validateImage, async (req, res, nex
   }
 });
 
-app.get("/admin",isLoggedIn,(req, res) => {
+app.get("/admin",isLoggedIn,isAdmin,(req, res) => {
   res.render("pages/create.ejs")
 });
 
