@@ -51,7 +51,7 @@ export function Hero() {
             Weddings, pre-weddings, programmes and birthdays across India, shot by Puskar Dahal.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <ButtonLink href="/contact" variant="on-dark">
+            <ButtonLink href="/contact">
               Get a quote
             </ButtonLink>
             <ButtonLink href="/work" variant="on-dark-ghost">
