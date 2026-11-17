@@ -42,6 +42,14 @@
   /* Shape: photos square, panels 12px, interactive fully round */
   --radius-panel: 0.75rem;
 
+  /* Shadows: buttons only, tinted to their surface (never generic grey) */
+  --shadow-btn: 0 1px 2px rgb(22 32 27 / 0.06), 0 3px 8px -2px rgb(22 32 27 / 0.1);
+  --shadow-btn-hover: 0 2px 4px rgb(22 32 27 / 0.08), 0 10px 24px -6px rgb(22 32 27 / 0.22);
+  --shadow-btn-sindoor: 0 1px 2px rgb(196 26 0 / 0.2), 0 4px 12px -2px rgb(228 30 0 / 0.3);
+  --shadow-btn-sindoor-hover: 0 2px 4px rgb(196 26 0 / 0.22), 0 12px 28px -6px rgb(228 30 0 / 0.42);
+  --shadow-btn-dark: 0 1px 2px rgb(0 0 0 / 0.25), 0 4px 12px -2px rgb(0 0 0 / 0.3);
+  --shadow-btn-dark-hover: 0 2px 4px rgb(0 0 0 / 0.28), 0 12px 28px -6px rgb(0 0 0 / 0.45);
+
   /* Motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -49,7 +57,7 @@
   --duration-fast: 150ms;
   --duration-base: 240ms;
   --duration-slow: 480ms;
-  --duration-hover-fill: 600ms;
+  --duration-hover-fill: 900ms;
   --duration-develop: 900ms;
 }
 

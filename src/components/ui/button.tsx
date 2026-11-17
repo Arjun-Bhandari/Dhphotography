@@ -5,8 +5,9 @@ type Variant = "primary" | "secondary" | "on-dark";
 
 const base =
   "relative isolate inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden rounded-full px-6 " +
-  "text-base font-medium transition-[background-color,color,transform] " +
-  "active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50";
+  "text-base font-medium transition-[background-color,color,box-shadow,translate,scale] " +
+  "hover:-translate-y-px active:translate-y-0 active:scale-[0.97] active:shadow-none " +
+  "disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none";
 
 // Outline fill grows as a circle from the bottom edge, echoing the logo.
 const circleFill =
@@ -16,9 +17,13 @@ const circleFill =
   "duration-(--duration-hover-fill) ease-smooth motion-reduce:before:transition-none";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-sindoor text-paper duration-(--duration-base) ease-out hover:bg-sindoor-deep",
-  secondary: `bg-transparent text-ink ring-1 ring-ink/20 ring-inset hover:text-paper ${circleFill}`,
-  "on-dark": "bg-paper text-forest duration-(--duration-base) ease-out hover:bg-blush",
+  primary:
+    "bg-sindoor text-paper shadow-btn-sindoor duration-(--duration-base) ease-out " +
+    "hover:bg-sindoor-deep hover:shadow-btn-sindoor-hover",
+  secondary: `bg-paper text-ink shadow-btn ring-1 ring-ink/15 ring-inset hover:text-paper hover:shadow-btn-hover ${circleFill}`,
+  "on-dark":
+    "bg-paper text-forest shadow-btn-dark duration-(--duration-base) ease-out " +
+    "hover:bg-blush hover:shadow-btn-dark-hover",
 };
 
 export function buttonClasses(variant: Variant = "primary", className = "") {

@@ -75,7 +75,8 @@ HOME (desktop)
 - Photos are **never cropped**: always shown at their native aspect ratio (`w-full h-auto`, no forced `aspect-*` + `object-cover`). Layouts adapt to the photo, not the other way round. The only exception is a full-bleed hero, which must set an explicit focal point (`object-position`) per image.
 - Interactive things: **fully round** (pills and circles, from the logo).
 - Panels/inputs: 12px radius. Only those three values.
-- No drop shadows on content; depth comes from photos and the `forest` / `paper` contrast.
+- No drop shadows on content (photos, panels, text); depth comes from photos and the `forest` / `paper` contrast.
+- **Buttons are the exception:** soft, layered shadows tinted to their colour (red-tinted under `sindoor`, ink-tinted under outline, deep under `on-dark`). On hover the button lifts 1px and the shadow grows; on press it sinks and the shadow disappears. Tokens: `shadow-btn*`.
 
 ## Motion
 **The signature moment ("develop").** On first load the three logo circles appear soft → mid → bold, and the hero photo develops in behind them (blush tint resolving to full colour). This is the one orchestrated entrance. Everything else stays quiet.
