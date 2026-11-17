@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ComponentProps } from "react";
 
-type Variant = "primary" | "secondary" | "on-dark";
+type Variant = "primary" | "secondary" | "on-dark" | "on-dark-ghost";
 
 const base =
   "relative isolate inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden rounded-full px-6 " +
@@ -10,10 +10,11 @@ const base =
   "disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none";
 
 // Every variant's hover fill grows as a circle from the bottom edge, echoing the logo.
+// 80% just covers a pill-shaped button, so the whole duration is visible growth.
 const circleFill =
   "before:absolute before:inset-0 before:-z-10 before:content-[''] " +
   "before:[clip-path:circle(0%_at_50%_100%)] before:transition-[clip-path] " +
-  "before:duration-(--duration-hover-fill) before:ease-smooth hover:before:[clip-path:circle(150%_at_50%_100%)] " +
+  "before:duration-(--duration-hover-fill) before:ease-smooth hover:before:[clip-path:circle(80%_at_50%_100%)] " +
   "[--btn-color-duration:var(--duration-hover-fill)] [--btn-color-ease:var(--ease-smooth)] " +
   "motion-reduce:before:transition-none";
 
@@ -23,6 +24,9 @@ const variants: Record<Variant, string> = {
     "bg-paper text-ink shadow-btn ring-1 ring-ink/15 ring-inset before:bg-ink " +
     "hover:text-paper hover:shadow-btn-hover",
   "on-dark": "bg-paper text-forest shadow-btn-dark before:bg-blush hover:shadow-btn-dark-hover",
+  "on-dark-ghost":
+    "bg-transparent text-paper ring-1 ring-paper/50 ring-inset backdrop-blur-sm before:bg-paper " +
+    "hover:text-forest hover:shadow-btn-dark-hover",
 };
 
 export function buttonClasses(variant: Variant = "primary", className = "") {

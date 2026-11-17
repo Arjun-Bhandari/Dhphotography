@@ -72,6 +72,7 @@ HOME (desktop)
 
 ## Shape
 - Photos: **square corners** (a photo is a print).
+- Text over a photo must **never cover a face**: pick photos and focal points so faces sit in the top two-thirds, keep overlay text in the bottom third.
 - Photos are **never cropped**: always shown at their native aspect ratio (`w-full h-auto`, no forced `aspect-*` + `object-cover`). Layouts adapt to the photo, not the other way round. The only exception is a full-bleed hero, which must set an explicit focal point (`object-position`) per image.
 - Interactive things: **fully round** (pills and circles, from the logo).
 - Panels/inputs: 12px radius. Only those three values.
