@@ -17,12 +17,15 @@ export function Header() {
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const lastY = useRef(0);
+  const headerRef = useRef<HTMLElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setScrolled(y > 8);
+      // The frosted bar builds up over the first 120px instead of switching on at once.
+      headerRef.current?.style.setProperty("--frost", String(Math.min(y / 120, 1)));
+      setScrolled(y > 60);
       // Hide while reading down the page, come back as soon as the visitor scrolls up.
       setHidden(y > 160 && y > lastY.current);
       lastY.current = y;
@@ -38,11 +41,21 @@ export function Header() {
   return (
     <>
       <header
+        ref={headerRef}
+        style={{
+          // Frost follows the scroll position; the short linear part only smooths out wheel steps.
+          transition:
+            "translate var(--duration-slow) var(--ease-out), " +
+            "color var(--duration-hover-fill) var(--ease-smooth), " +
+            "background-color 200ms linear, backdrop-filter 200ms linear",
+        }}
         className={[
-          "fixed inset-x-0 top-0 z-50 transition-[translate,background-color,color] duration-(--duration-slow) ease-out",
+          "fixed inset-x-0 top-0 z-50",
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0",
           onDark ? "text-paper" : "text-ink",
-          !onDark && scrolled ? "bg-paper/85 backdrop-blur-md" : "bg-transparent",
+          menuOpen
+            ? "bg-transparent"
+            : "bg-[rgb(255_255_255/calc(var(--frost,0)*0.85))] backdrop-blur-[calc(var(--frost,0)*12px)]",
         ].join(" ")}
       >
         <div className="page-x mx-auto flex h-18 max-w-page items-center justify-between gap-6">

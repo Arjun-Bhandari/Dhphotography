@@ -12,7 +12,8 @@ export function Footer() {
           <div className="md:col-span-7">
             <h2 className="max-w-xl text-4xl">Tell Puskar about your day.</h2>
             <p className="mt-6 max-w-md text-blush">
-              Share your date and location. You&rsquo;ll get a reply with availability and a quote.
+              Share your date and location. You&rsquo;ll get a reply with availability and a quote,
+              usually within a day.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
               <ButtonLink href={site.whatsappUrl} target="_blank" rel="noreferrer" variant="on-dark">
