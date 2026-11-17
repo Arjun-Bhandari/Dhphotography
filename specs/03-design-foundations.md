@@ -87,6 +87,7 @@ HOME (desktop)
 | `duration-fast` | 150ms | Hover, press |
 | `duration-base` | 240ms | Menus, small UI |
 | `duration-slow` | 480ms | Lightbox, panels |
+| `duration-hover-fill` + `ease-smooth` | 600ms, cubic-bezier(0.33, 1, 0.68, 1) | Outline button circular fill (text colour in sync) |
 | `duration-develop` | 900ms | Photo develop / hero only |
 
 - Images develop the first time they enter view: a blush placeholder fades out as the photo fades in (no slide-ups on every section).

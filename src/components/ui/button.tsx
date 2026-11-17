@@ -12,8 +12,8 @@ const base =
 const circleFill =
   "before:absolute before:inset-0 before:-z-10 before:bg-ink before:content-[''] " +
   "before:[clip-path:circle(0%_at_50%_100%)] before:transition-[clip-path] " +
-  "before:duration-(--duration-slow) before:ease-out hover:before:[clip-path:circle(150%_at_50%_100%)] " +
-  "motion-reduce:before:transition-none";
+  "before:duration-(--duration-hover-fill) before:ease-smooth hover:before:[clip-path:circle(150%_at_50%_100%)] " +
+  "duration-(--duration-hover-fill) ease-smooth motion-reduce:before:transition-none";
 
 const variants: Record<Variant, string> = {
   primary: "bg-sindoor text-paper hover:bg-sindoor-deep",
