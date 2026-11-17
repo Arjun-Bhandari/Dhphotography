@@ -28,7 +28,8 @@ export type Photo = {
 type LibraryEntry = { width: number; height: number; category: string; alt: string };
 const entries = library as Record<string, LibraryEntry>;
 
-function photo(file: string): Photo {
+/** Look up one photo by its file name in public/photos. */
+export function getPhoto(file: string): Photo {
   const entry = entries[file];
   if (!entry) throw new Error(`Photo "${file}" is not in photo-library.json. Run \`npm run photos\`.`);
   return {
@@ -42,38 +43,38 @@ function photo(file: string): Photo {
 }
 
 /** Every photo in the library, e.g. for the Work page. */
-export const allPhotos: Photo[] = Object.keys(entries).map(photo);
+export const allPhotos: Photo[] = Object.keys(entries).map(getPhoto);
 
 export const photos = {
-  coupleRed: photo("wed-fb-05.jpg"),
-  brideRed: photo("wed-fb-06.jpg"),
-  brideYellowWall: photo("0+.jpg"),
-  brideVeil: photo("0.jpg"),
-  brideShoulder: photo("DHP14473.jpg"),
-  brideHands: photo("DHP14482.jpg"),
-  groom: photo("DHP14555.jpg"),
-  mirror: photo("145A0431.jpg"),
-  haldiGroup: photo("fb-pre-wed-02.jpg"),
-  haldiBride: photo("145A6159.jpg"),
-  coupleYellow: photo("pre-wed-fb-08.jpg"),
-  brideYellow: photo("pre-wed-fb-07.jpg"),
-  coupleBlossom: photo("Guruji 2.jpg"),
-  coupleHug: photo("Guruji 3.jpg"),
-  traditional: photo("traditonal-func-01-fb.jpg"),
-  festival: photo("fest-fb-10.jpg"),
-  baby: photo("baby-09.jpg"),
-  birthdayPortrait: photo("DHP19688.jpg"),
-  birthdayFamily: photo("DHP19691.jpg"),
-  birthdayCouple: photo("DHP19701.jpg"),
-  birthdayCake: photo("DHP19802.jpg"),
-  puskar: photo("self-fb-16.jpg"),
-  paddy: photo("hero-green-fb-17.jpg"),
-  waterfall: photo("hero-fb-13.jpg"),
-  temple: photo("hero-fb-14.jpg"),
-  town: photo("town-fb-12.jpg"),
-  butterfly: photo("hero-fb-15.jpg"),
-  mushrooms: photo("hero-fb-11.jpg"),
-  bulb: photo("hero-fb-18.jpg"),
+  coupleRed: getPhoto("wed-fb-05.jpg"),
+  brideRed: getPhoto("wed-fb-06.jpg"),
+  brideYellowWall: getPhoto("0+.jpg"),
+  brideVeil: getPhoto("0.jpg"),
+  brideShoulder: getPhoto("DHP14473.jpg"),
+  brideHands: getPhoto("DHP14482.jpg"),
+  groom: getPhoto("DHP14555.jpg"),
+  mirror: getPhoto("145A0431.jpg"),
+  haldiGroup: getPhoto("fb-pre-wed-02.jpg"),
+  haldiBride: getPhoto("145A6159.jpg"),
+  coupleYellow: getPhoto("pre-wed-fb-08.jpg"),
+  brideYellow: getPhoto("pre-wed-fb-07.jpg"),
+  coupleBlossom: getPhoto("Guruji 2.jpg"),
+  coupleHug: getPhoto("Guruji 3.jpg"),
+  traditional: getPhoto("traditonal-func-01-fb.jpg"),
+  festival: getPhoto("fest-fb-10.jpg"),
+  baby: getPhoto("baby-09.jpg"),
+  birthdayPortrait: getPhoto("DHP19688.jpg"),
+  birthdayFamily: getPhoto("DHP19691.jpg"),
+  birthdayCouple: getPhoto("DHP19701.jpg"),
+  birthdayCake: getPhoto("DHP19802.jpg"),
+  puskar: getPhoto("self-fb-16.jpg"),
+  paddy: getPhoto("hero-green-fb-17.jpg"),
+  waterfall: getPhoto("hero-fb-13.jpg"),
+  temple: getPhoto("hero-fb-14.jpg"),
+  town: getPhoto("town-fb-12.jpg"),
+  butterfly: getPhoto("hero-fb-15.jpg"),
+  mushrooms: getPhoto("hero-fb-11.jpg"),
+  bulb: getPhoto("hero-fb-18.jpg"),
 };
 
 export type HeroSlide = {
