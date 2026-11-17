@@ -5,8 +5,16 @@ const whatsappMessage = "Hi Dh Photography, I'd like to ask about a shoot.";
 
 export const site = {
   name: "Dh Photography",
-  /** Public address of the site. Set NEXT_PUBLIC_SITE_URL once the domain is live. */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
+  /**
+   * Public address of the site: NEXT_PUBLIC_SITE_URL when set (the real domain), otherwise
+   * the production domain Vercel provides, otherwise local dev. Used for share links and SEO.
+   */
+  url: (
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000")
+  ).replace(/\/$/, ""),
   owner: "Puskar Dahal",
   location: "Kanglatongbi, Manipur",
   taglines: {

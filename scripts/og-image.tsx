@@ -1,9 +1,11 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+/* eslint-disable @next/next/no-img-element -- ImageResponse renders plain <img>, not next/image */
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
-// Share card for WhatsApp, Instagram, Facebook and search results.
+// Share card design for WhatsApp, Instagram, Facebook and search results.
+// Rendered once to public/og.png by `npm run og` (a static file loads instantly for link previews).
 export const alt = "Dh Photography: wedding and event photography from Manipur";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
