@@ -106,6 +106,6 @@ HOME (desktop)
 Responsive from 360px; visible focus ring (2px `sindoor`, 2px offset); AA contrast; touch targets ≥ 44px; images in AVIF/WebP with explicit sizes; LCP image preloaded.
 
 ## Site shell
-- **Header:** always visible (sticky). At the top of the page it is flat and transparent; over the first 120px of scroll it gradually becomes a floating, rounded, frosted bar (inset 12px from the top, soft ink shadow). Its edges align with page content at every width.
+- **Header:** always visible (sticky). At the top of the page it is flat and transparent; over the first 80px of scroll a floating, rounded, frosted pill fades in (opacity + slight scale only, for smoothness); nav links centred, "Get a quote" on the right. Its edges align with page content at every width.
 - **Large screens:** all content is capped at `--container-page` (1440px) and centred; full-bleed backgrounds (hero, forest sections) still run edge to edge.
 - **Small screens:** hero is ~72svh on phones (full height from `md`), and display type scales down to 44px at 320px wide.

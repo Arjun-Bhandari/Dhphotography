@@ -21,9 +21,10 @@ export function Header() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      // 0 → 1 over the first 120px: the bar frosts, rounds and lifts off the edges gradually.
-      headerRef.current?.style.setProperty("--frost", String(Math.min(y / 120, 1)));
-      setScrolled(y > 60);
+      // 0 → 1 over the first 80px: the frosted pill fades in with the scroll.
+      headerRef.current?.style.setProperty("--frost", String(Math.min(y / 80, 1)));
+      // Switch text to ink early, before the pill is light enough to make white text hard to read.
+      setScrolled(y > 28);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -39,29 +40,28 @@ export function Header() {
       <header
         ref={headerRef}
         className={[
-          "page-x fixed inset-x-0 top-0 z-50 pt-[calc(var(--frost,0)*0.75rem)]",
-          "transition-[color] duration-(--duration-hover-fill) ease-smooth",
+          "page-x fixed inset-x-0 top-0 z-50 pt-3",
+          "transition-[color] duration-300 ease-out",
           onDark ? "text-paper" : "text-ink",
         ].join(" ")}
       >
-        <div
-          style={{
-            // The scroll position drives these; the short linear part only smooths out wheel steps.
-            transition:
-              "background-color 200ms linear, backdrop-filter 200ms linear, box-shadow 200ms linear, " +
-              "border-radius 200ms linear, padding 200ms linear",
-          }}
-          className={[
-            // Max width = page container minus its xl side padding, so the logo lines up with page content.
-            "mx-auto flex h-16 max-w-[calc(var(--container-page)-6rem)] items-center justify-between gap-6 md:h-18",
-            "rounded-[calc(var(--frost,0)*2.25rem)] px-[calc(var(--frost,0)*1rem)] md:px-[calc(var(--frost,0)*1.5rem)]",
-            menuOpen
-              ? "bg-transparent"
-              : "bg-[rgb(255_255_255/calc(var(--frost,0)*0.85))] backdrop-blur-[calc(var(--frost,0)*12px)] " +
-                "shadow-[0_10px_30px_-12px_rgb(22_32_27/calc(var(--frost,0)*0.3)),0_0_0_1px_rgb(22_32_27/calc(var(--frost,0)*0.06))]",
-          ].join(" ")}
-        >
-          <Link href="/" aria-label="Dh Photography, home" className="-m-2 p-2">
+        {/* Max width = page container minus its xl side padding, so the logo lines up with page content. */}
+        <div className="relative mx-auto grid h-16 max-w-[calc(var(--container-page)-6rem)] grid-cols-[1fr_auto] items-center gap-6 md:h-18 md:grid-cols-[1fr_auto_1fr]">
+          {/*
+            The frosted pill is its own layer that only fades and scales (both GPU-composited),
+            so it tracks the scroll exactly with no blur or layout recalculated per frame.
+          */}
+          <div
+            aria-hidden
+            style={
+              menuOpen
+                ? { opacity: 0 }
+                : { opacity: "var(--frost, 0)", scale: "calc(0.97 + var(--frost, 0) * 0.03)" }
+            }
+            className="pointer-events-none absolute inset-y-0 -inset-x-3 -z-10 rounded-full bg-paper/85 shadow-[0_10px_30px_-12px_rgb(22_32_27/0.3),0_0_0_1px_rgb(22_32_27/0.06)] backdrop-blur-md md:-inset-x-6"
+          />
+
+          <Link href="/" aria-label="Dh Photography, home" className="-m-2 justify-self-start p-2">
             <Logo variant="horizontal" title="" className="h-9 w-auto md:h-10" />
           </Link>
 
@@ -85,12 +85,17 @@ export function Header() {
                 </Link>
               );
             })}
-            <ButtonLink href="/contact" variant={onDark ? "on-dark" : "primary"} className="ml-4">
-              Get a quote
-            </ButtonLink>
           </nav>
 
-          <MenuToggle open={menuOpen} onOpenChange={setMenuOpen} toggleRef={toggleRef} />
+          <div className="hidden justify-self-end md:block">
+            <ButtonLink href="/contact" variant={onDark ? "on-dark" : "primary"}>
+              Get a quote
+            </ButtonLink>
+          </div>
+
+          <div className="justify-self-end md:hidden">
+            <MenuToggle open={menuOpen} onOpenChange={setMenuOpen} toggleRef={toggleRef} />
+          </div>
         </div>
       </header>
       <MobileMenuPanel
