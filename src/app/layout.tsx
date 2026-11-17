@@ -3,6 +3,7 @@ import { Hanken_Grotesk, Hedvig_Letters_Serif } from "next/font/google";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { SmoothScroll } from "@/components/site/smooth-scroll";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const hedvig = Hedvig_Letters_Serif({
@@ -18,6 +19,7 @@ const hanken = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: "Dh Photography: Wedding & Event Photographer in Manipur",
     template: "%s | Dh Photography",

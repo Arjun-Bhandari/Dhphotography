@@ -5,6 +5,8 @@ const whatsappMessage = "Hi Dh Photography, I'd like to ask about a shoot.";
 
 export const site = {
   name: "Dh Photography",
+  /** Public address of the site. Set NEXT_PUBLIC_SITE_URL once the domain is live. */
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
   owner: "Puskar Dahal",
   location: "Kanglatongbi, Manipur",
   taglines: {
