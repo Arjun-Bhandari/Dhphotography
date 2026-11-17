@@ -96,7 +96,7 @@ export default function StyleguidePage() {
             src={profile}
             alt="Puskar Dahal smiling among green leaves"
             placeholder="blur"
-            className="develop aspect-[4/3] w-full object-cover"
+            className="develop h-auto w-full"
             sizes="(min-width: 768px) 66vw, 100vw"
           />
           <p className="text-stone">
