@@ -1,6 +1,8 @@
 import "server-only";
 import { db } from "@/db";
 import { inquiries, type NewInquiry } from "@/db/schema";
+import { inquiryEmail } from "@/lib/email/inquiry-email";
+import { LOGO_CID, LOGO_PNG_BASE64 } from "@/lib/email/logo";
 import { site } from "@/lib/site";
 
 /** Saves to Neon when configured; otherwise logs, so the form works in local development. */
@@ -21,15 +23,7 @@ export async function notifyInquiry(inquiry: NewInquiry) {
     return;
   }
 
-  const lines = [
-    `Name: ${inquiry.name}`,
-    `Phone / WhatsApp: ${inquiry.phone}`,
-    inquiry.email ? `Email: ${inquiry.email}` : null,
-    `Occasion: ${inquiry.occasion}`,
-    inquiry.eventDate ? `Date: ${inquiry.eventDate}` : "Date: not decided",
-    `Location: ${inquiry.location}`,
-    inquiry.message ? `\n${inquiry.message}` : null,
-  ].filter(Boolean);
+  const { subject, html, text } = inquiryEmail(inquiry);
 
   try {
     const res = await fetch("https://api.resend.com/emails", {
@@ -39,8 +33,14 @@ export async function notifyInquiry(inquiry: NewInquiry) {
         from: process.env.INQUIRY_FROM_EMAIL ?? "Dh Photography <onboarding@resend.dev>",
         to,
         reply_to: inquiry.email ?? undefined,
-        subject: `New inquiry: ${inquiry.occasion} – ${inquiry.name}`,
-        text: lines.join("\n"),
+        subject,
+        html,
+        text,
+        // Logo attached inline (referenced as cid: in the HTML); remote images and SVG
+        // are often blocked by mail clients.
+        attachments: [
+          { filename: "dh-photography.png", content: LOGO_PNG_BASE64, content_type: "image/png", content_id: LOGO_CID },
+        ],
       }),
     });
     if (!res.ok) console.error("[inquiry] email failed:", res.status, await res.text());
