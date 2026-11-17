@@ -1,5 +1,6 @@
 import type { NewInquiry } from "@/db/schema";
 import { site } from "@/lib/site";
+import { whatsappReplyLink } from "@/lib/whatsapp";
 import { LOGO_CID } from "./logo";
 
 // Brand colours (email clients need literal values, not CSS variables).
@@ -30,14 +31,6 @@ function formatEventDate(iso: string | null | undefined) {
     year: "numeric",
     timeZone: "UTC",
   }).format(date);
-}
-
-/** wa.me needs digits with a country code; a bare 10-digit number is assumed Indian. */
-function whatsappLink(phone: string, name: string) {
-  const digits = phone.replace(/\D/g, "");
-  const full = digits.length === 10 ? `91${digits}` : digits.replace(/^0+/, "");
-  const greeting = `Hi ${name.split(" ")[0]}, this is Puskar from Dh Photography. Thank you for your inquiry!`;
-  return `https://wa.me/${full}?text=${encodeURIComponent(greeting)}`;
 }
 
 function button(href: string, label: string, primary: boolean) {
@@ -121,7 +114,7 @@ export function inquiryEmail(inquiry: NewInquiry, receivedAt = new Date()) {
         <!-- Actions -->
         <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
           <tr>
-            ${button(whatsappLink(inquiry.phone, inquiry.name), "Reply on WhatsApp", true)}
+            ${button(whatsappReplyLink(inquiry.phone, inquiry.name), "Reply on WhatsApp", true)}
             ${button(`tel:${inquiry.phone.replace(/[^\d+]/g, "")}`, "Call", false)}
             ${email ? button(`mailto:${inquiry.email}`, "Email", false) : ""}
           </tr>
@@ -172,7 +165,7 @@ export function inquiryEmail(inquiry: NewInquiry, receivedAt = new Date()) {
     `Town or venue: ${inquiry.location}`,
     inquiry.message ? `\nTheir message:\n${inquiry.message}` : null,
     "",
-    `Reply on WhatsApp: ${whatsappLink(inquiry.phone, inquiry.name)}`,
+    `Reply on WhatsApp: ${whatsappReplyLink(inquiry.phone, inquiry.name)}`,
   ]
     .filter((line) => line !== null)
     .join("\n");

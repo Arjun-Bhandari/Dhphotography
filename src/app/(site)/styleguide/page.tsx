@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Logo } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
-import profile from "../../../public/profile.jpg";
+import profile from "../../../../public/profile.jpg";
 
 export const metadata = { title: "Styleguide", robots: { index: false } };
 

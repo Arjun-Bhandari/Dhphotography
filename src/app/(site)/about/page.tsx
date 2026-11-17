@@ -4,7 +4,7 @@ import { Photo } from "@/components/photo/photo";
 import { ButtonLink } from "@/components/ui/button";
 import { photos } from "@/content/photos";
 import { site } from "@/lib/site";
-import portrait from "../../../public/profile.jpg";
+import portrait from "../../../../public/profile.jpg";
 
 export const metadata = {
   title: "About",
