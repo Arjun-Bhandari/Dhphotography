@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/home/hero";
+import { ManipurCarousel } from "@/components/home/manipur-carousel";
 import { Photo } from "@/components/photo/photo";
 import { ButtonLink } from "@/components/ui/button";
 import { packages } from "@/content/packages";
@@ -53,7 +54,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Manipur: a horizontal strip at a fixed height, widths follow each photo */}
+      {/* Manipur: auto-advancing carousel, widths follow each photo */}
       <section className="pb-24 md:pb-36">
         <div className="page-x mx-auto w-full max-w-page">
           <h2 className="text-4xl">Manipur, between shoots</h2>
@@ -62,16 +63,8 @@ export default function Home() {
             day.
           </p>
         </div>
-        <div className="mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-px-5 px-5 pb-4 [scrollbar-width:thin] md:mt-14 md:scroll-px-8 md:gap-6 md:px-8 xl:scroll-px-[max(3rem,calc((100vw_-_var(--container-page))/2_+_3rem))] xl:px-[max(3rem,calc((100vw_-_var(--container-page))/2_+_3rem))]">
-          {home.manipur.map((photo) => (
-            <Photo
-              key={photo.id}
-              photo={photo}
-              sizes="(min-width: 48rem) 40vw, 70vw"
-              className="shrink-0 snap-start"
-              imgClassName="h-[22rem] w-auto max-w-none md:h-[30rem]"
-            />
-          ))}
+        <div className="mt-10 md:mt-14">
+          <ManipurCarousel photos={home.manipur} />
         </div>
       </section>
 

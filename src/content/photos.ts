@@ -54,10 +54,22 @@ export const photos = {
   bulb: p("hero-fb-18.jpg", 692, 1080, "manipur", "Light bulb glowing against a sunset sky"),
 } satisfies Record<string, Photo>;
 
+export type HeroSlide = {
+  desktop: Photo;
+  mobile: Photo;
+  /** Focal points per breakpoint; faces must land in the top two-thirds (headline sits below). */
+  desktopFocus?: string;
+  mobileFocus?: string;
+};
+
 export const home = {
-  heroDesktop: photos.coupleRed,
-  // Portrait with the face in the upper third, so the headline sits over the sari, not the face.
-  heroMobile: photos.brideYellow,
+  heroSlides: [
+    // Mobile uses a portrait with the face in the upper third, so the headline sits over the sari.
+    { desktop: photos.coupleRed, mobile: photos.brideYellow, desktopFocus: "50% 40%", mobileFocus: "50% 20%" },
+    { desktop: photos.coupleYellow, mobile: photos.coupleYellow, desktopFocus: "50% 32%", mobileFocus: "60% 30%" },
+    { desktop: photos.haldiGroup, mobile: photos.haldiBack, desktopFocus: "50% 30%", mobileFocus: "50% 25%" },
+    { desktop: photos.coupleBlossom, mobile: photos.coupleBlossom, desktopFocus: "50% 28%", mobileFocus: "50% 30%" },
+  ] satisfies HeroSlide[],
   selected: [
     photos.coupleBlossom,
     photos.haldiGroup,

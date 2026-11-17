@@ -12,6 +12,12 @@
   --color-sindoor-deep: #c41a00;
   --color-blush: #f7c0b9;
 
+  /* shadcn-style aliases used by registry components (apple-carousel), mapped to our palette */
+  --color-foreground: var(--color-ink);
+  --color-muted: var(--color-mist);
+  --color-muted-foreground: var(--color-stone);
+  --color-ring: var(--color-sindoor);
+
   /* Type */
   --font-display: var(--font-hedvig), "Iowan Old Style", Georgia, serif;
   --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
@@ -129,6 +135,14 @@
     box-shadow var(--duration-base) var(--ease-out),
     translate var(--duration-base) var(--ease-out),
     scale var(--duration-fast) var(--ease-out);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Photo "develop": a blush wash resolves into the photograph the first time it is shown. */
