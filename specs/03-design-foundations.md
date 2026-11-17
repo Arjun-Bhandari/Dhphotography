@@ -27,7 +27,7 @@ A wedding and event photographer from Kanglatongbi, Manipur, showing couples and
 - Red is rare: at most one red thing per screen. The photographs bring the colour.
 - No red text on `forest` (2.9:1, fails). On forest, use `paper` or `blush`.
 - White text on `sindoor` buttons is 4.7:1, which passes AA. Keep button labels at 16px+ medium weight.
-- No light/dark theme switch: dark sections are a deliberate part of the design, not a mode.
+- **Palette locked (2026-11-17).** No light/dark theme switch for now: dark sections are a deliberate part of the design, not a mode. The fullscreen lightbox uses `forest`. Dark mode is deferred, not ruled out: keep colours referenced only through tokens (never raw hex in components) so a dark theme can be added later by redefining tokens.
 
 ## Typography
 | Role | Face | Notes |
