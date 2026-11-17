@@ -5,7 +5,7 @@ type Variant = "primary" | "secondary" | "on-dark";
 
 const base =
   "relative isolate inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden rounded-full px-6 " +
-  "text-base font-medium transition-[background-color,color,box-shadow,translate,scale] " +
+  "text-base font-medium btn-motion " +
   "hover:-translate-y-px active:translate-y-0 active:scale-[0.97] active:shadow-none " +
   "disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none";
 
@@ -14,16 +14,15 @@ const circleFill =
   "before:absolute before:inset-0 before:-z-10 before:bg-ink before:content-[''] " +
   "before:[clip-path:circle(0%_at_50%_100%)] before:transition-[clip-path] " +
   "before:duration-(--duration-hover-fill) before:ease-smooth hover:before:[clip-path:circle(150%_at_50%_100%)] " +
-  "duration-(--duration-hover-fill) ease-smooth motion-reduce:before:transition-none";
+  "[--btn-color-duration:var(--duration-hover-fill)] [--btn-color-ease:var(--ease-smooth)] " +
+  "motion-reduce:before:transition-none";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-sindoor text-paper shadow-btn-sindoor duration-(--duration-base) ease-out " +
-    "hover:bg-sindoor-deep hover:shadow-btn-sindoor-hover",
+    "bg-sindoor text-paper shadow-btn-strong hover:bg-sindoor-deep hover:shadow-btn-strong-hover",
   secondary: `bg-paper text-ink shadow-btn ring-1 ring-ink/15 ring-inset hover:text-paper hover:shadow-btn-hover ${circleFill}`,
   "on-dark":
-    "bg-paper text-forest shadow-btn-dark duration-(--duration-base) ease-out " +
-    "hover:bg-blush hover:shadow-btn-dark-hover",
+    "bg-paper text-forest shadow-btn-dark hover:bg-blush hover:shadow-btn-dark-hover",
 };
 
 export function buttonClasses(variant: Variant = "primary", className = "") {

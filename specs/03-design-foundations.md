@@ -76,7 +76,7 @@ HOME (desktop)
 - Interactive things: **fully round** (pills and circles, from the logo).
 - Panels/inputs: 12px radius. Only those three values.
 - No drop shadows on content (photos, panels, text); depth comes from photos and the `forest` / `paper` contrast.
-- **Buttons are the exception:** soft, layered shadows tinted to their colour (red-tinted under `sindoor`, ink-tinted under outline, deep under `on-dark`). On hover the button lifts 1px and the shadow grows; on press it sinks and the shadow disappears. Tokens: `shadow-btn*`.
+- **Buttons are the exception:** soft, layered shadows tinted to their colour (ink-tinted under `sindoor` and outline (a red-tinted glow looked off), deep under `on-dark`). On hover the button lifts 1px and the shadow grows; on press it sinks and the shadow disappears. Each property has its own timing (`btn-motion`): colour/fill can be slow, lift 240ms, press 150ms, so press feedback always feels instant. Tokens: `shadow-btn*`.
 
 ## Motion
 **The signature moment ("develop").** On first load the three logo circles appear soft → mid → bold, and the hero photo develops in behind them (blush tint resolving to full colour). This is the one orchestrated entrance. Everything else stays quiet.

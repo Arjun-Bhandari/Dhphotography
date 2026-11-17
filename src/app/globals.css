@@ -45,8 +45,8 @@
   /* Shadows: buttons only, tinted to their surface (never generic grey) */
   --shadow-btn: 0 1px 2px rgb(22 32 27 / 0.06), 0 3px 8px -2px rgb(22 32 27 / 0.1);
   --shadow-btn-hover: 0 2px 4px rgb(22 32 27 / 0.08), 0 10px 24px -6px rgb(22 32 27 / 0.22);
-  --shadow-btn-sindoor: 0 1px 2px rgb(196 26 0 / 0.2), 0 4px 12px -2px rgb(228 30 0 / 0.3);
-  --shadow-btn-sindoor-hover: 0 2px 4px rgb(196 26 0 / 0.22), 0 12px 28px -6px rgb(228 30 0 / 0.42);
+  --shadow-btn-strong: 0 1px 2px rgb(22 32 27 / 0.1), 0 4px 10px -2px rgb(22 32 27 / 0.16);
+  --shadow-btn-strong-hover: 0 2px 4px rgb(22 32 27 / 0.12), 0 12px 26px -6px rgb(22 32 27 / 0.28);
   --shadow-btn-dark: 0 1px 2px rgb(0 0 0 / 0.25), 0 4px 12px -2px rgb(0 0 0 / 0.3);
   --shadow-btn-dark-hover: 0 2px 4px rgb(0 0 0 / 0.28), 0 12px 28px -6px rgb(0 0 0 / 0.45);
 
@@ -113,6 +113,20 @@
   @media (width >= 80rem) {
     padding-inline: 3rem;
   }
+}
+
+/*
+ * Button motion: each property gets its own timing so a slow colour fill
+ * never makes the hover lift or the press feel laggy.
+ * Variants tune the colour timing with --btn-color-duration / --btn-color-ease.
+ */
+@utility btn-motion {
+  transition:
+    background-color var(--btn-color-duration, var(--duration-base)) var(--btn-color-ease, var(--ease-out)),
+    color var(--btn-color-duration, var(--duration-base)) var(--btn-color-ease, var(--ease-out)),
+    box-shadow var(--duration-base) var(--ease-out),
+    translate var(--duration-base) var(--ease-out),
+    scale var(--duration-fast) var(--ease-out);
 }
 
 /* Photo "develop": a blush wash resolves into the photograph the first time it is shown. */
