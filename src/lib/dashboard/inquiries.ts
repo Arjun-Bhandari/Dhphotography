@@ -1,5 +1,5 @@
 import "server-only";
-import { desc, eq } from "drizzle-orm";
+import { count, desc, eq } from "drizzle-orm";
 import { db } from "@/db";
 import { inquiries } from "@/db/schema";
 
@@ -21,6 +21,12 @@ export type Inquiry = typeof inquiries.$inferSelect;
 export async function listInquiries(): Promise<Inquiry[]> {
   if (!db) return [];
   return db.select().from(inquiries).orderBy(desc(inquiries.createdAt));
+}
+
+export async function countNewInquiries() {
+  if (!db) return 0;
+  const [row] = await db.select({ n: count() }).from(inquiries).where(eq(inquiries.status, "new"));
+  return row?.n ?? 0;
 }
 
 export async function getInquiry(id: number) {
