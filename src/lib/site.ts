@@ -7,6 +7,10 @@ export const site = {
   name: "Dh Photography",
   owner: "Puskar Dahal",
   location: "Kanglatongbi, Manipur",
+  taglines: {
+    brand: "Capturing your happiest “Yes” in timeless frames.",
+    personal: "Your love, my lens, a perfect match.",
+  },
   phone,
   phoneDisplay: "+91 87986 13217",
   email: "puskardahal325@gmail.com",

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Design tokens: see specs/03-design-foundations.md */
-@theme {
+@theme static {
   /* Colour */
   --color-paper: #ffffff;
   --color-mist: #f2f3ef;
@@ -57,7 +57,9 @@
   --duration-fast: 150ms;
   --duration-base: 240ms;
   --duration-slow: 480ms;
-  --duration-hover-fill: 900ms;
+  --duration-hover-fill: 700ms;
+  --duration-menu-open: 700ms;
+  --duration-menu-close: 500ms;
   --duration-develop: 900ms;
 }
 

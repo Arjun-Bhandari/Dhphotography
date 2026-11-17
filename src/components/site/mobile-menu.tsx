@@ -89,10 +89,11 @@ export function MobileMenuPanel({
         aria-hidden={!open}
         className={[
           "fixed inset-0 z-40 flex flex-col bg-forest pt-18 text-paper",
-          "transition-[clip-path] duration-(--duration-slow) ease-in-out motion-reduce:transition-none",
+          "transition-[clip-path] motion-reduce:transition-none",
+          // Radius = screen diagonal, so the whole duration is visible growth (no overshoot off-screen).
           open
-            ? "[clip-path:circle(150%_at_calc(100%-2.25rem)_2.25rem)]"
-            : "[clip-path:circle(0%_at_calc(100%-2.25rem)_2.25rem)]",
+            ? "duration-(--duration-menu-open) ease-smooth [clip-path:circle(hypot(100vw,100dvh)_at_calc(100%-2.25rem)_2.25rem)]"
+            : "duration-(--duration-menu-close) ease-in-out [clip-path:circle(0px_at_calc(100%-2.25rem)_2.25rem)]",
         ].join(" ")}
       >
         <nav aria-label="Main" className="page-x flex flex-1 flex-col justify-center gap-2">
@@ -102,7 +103,7 @@ export function MobileMenuPanel({
               ref={i === 0 ? firstLinkRef : undefined}
               href={item.href}
               aria-current={pathname === item.href ? "page" : undefined}
-              style={{ transitionDelay: open ? `${120 + i * 40}ms` : "0ms" }}
+              style={{ transitionDelay: open ? `${200 + i * 50}ms` : "0ms" }}
               className={[
                 "font-display text-4xl transition-[opacity,translate] duration-(--duration-slow) ease-out",
                 "aria-[current=page]:text-blush motion-reduce:transition-none",

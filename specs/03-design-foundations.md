@@ -88,7 +88,8 @@ HOME (desktop)
 | `duration-fast` | 150ms | Hover, press |
 | `duration-base` | 240ms | Menus, small UI |
 | `duration-slow` | 480ms | Lightbox, panels |
-| `duration-hover-fill` + `ease-smooth` | 600ms, cubic-bezier(0.33, 1, 0.68, 1) | Circular hover fill on **every** button variant (primary → sindoor-deep, outline → ink, on-dark → blush); text colour in sync |
+| `duration-hover-fill` + `ease-smooth` | 700ms, cubic-bezier(0.33, 1, 0.68, 1) | Circular hover fill on **every** button variant (primary → sindoor-deep, outline → ink, on-dark → blush); text colour in sync |
+| `duration-menu-open` / `-close` | 700ms / 500ms | Mobile menu circle (radius = screen diagonal) |
 | `duration-develop` | 900ms | Photo develop / hero only |
 
 - Images develop the first time they enter view: a blush placeholder fades out as the photo fades in (no slide-ups on every section).
