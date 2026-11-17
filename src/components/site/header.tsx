@@ -14,21 +14,16 @@ const overlayRoutes = new Set(["/"]);
 export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const lastY = useRef(0);
   const headerRef = useRef<HTMLElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      // The frosted bar builds up over the first 120px instead of switching on at once.
+      // 0 → 1 over the first 120px: the bar frosts, rounds and lifts off the edges gradually.
       headerRef.current?.style.setProperty("--frost", String(Math.min(y / 120, 1)));
       setScrolled(y > 60);
-      // Hide while reading down the page, come back as soon as the visitor scrolls up.
-      setHidden(y > 160 && y > lastY.current);
-      lastY.current = y;
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -40,27 +35,34 @@ export function Header() {
 
   return (
     <>
+      {/* Always visible: flat at the top of the page, a floating rounded frosted bar once scrolled. */}
       <header
         ref={headerRef}
-        style={{
-          // Frost follows the scroll position; the short linear part only smooths out wheel steps.
-          transition:
-            "translate var(--duration-slow) var(--ease-out), " +
-            "color var(--duration-hover-fill) var(--ease-smooth), " +
-            "background-color 200ms linear, backdrop-filter 200ms linear",
-        }}
         className={[
-          "fixed inset-x-0 top-0 z-50",
-          hidden && !menuOpen ? "-translate-y-full" : "translate-y-0",
+          "page-x fixed inset-x-0 top-0 z-50 pt-[calc(var(--frost,0)*0.75rem)]",
+          "transition-[color] duration-(--duration-hover-fill) ease-smooth",
           onDark ? "text-paper" : "text-ink",
-          menuOpen
-            ? "bg-transparent"
-            : "bg-[rgb(255_255_255/calc(var(--frost,0)*0.85))] backdrop-blur-[calc(var(--frost,0)*12px)]",
         ].join(" ")}
       >
-        <div className="page-x mx-auto flex h-18 max-w-page items-center justify-between gap-6">
+        <div
+          style={{
+            // The scroll position drives these; the short linear part only smooths out wheel steps.
+            transition:
+              "background-color 200ms linear, backdrop-filter 200ms linear, box-shadow 200ms linear, " +
+              "border-radius 200ms linear, padding 200ms linear",
+          }}
+          className={[
+            // Max width = page container minus its xl side padding, so the logo lines up with page content.
+            "mx-auto flex h-16 max-w-[calc(var(--container-page)-6rem)] items-center justify-between gap-6 md:h-18",
+            "rounded-[calc(var(--frost,0)*2.25rem)] px-[calc(var(--frost,0)*1rem)] md:px-[calc(var(--frost,0)*1.5rem)]",
+            menuOpen
+              ? "bg-transparent"
+              : "bg-[rgb(255_255_255/calc(var(--frost,0)*0.85))] backdrop-blur-[calc(var(--frost,0)*12px)] " +
+                "shadow-[0_10px_30px_-12px_rgb(22_32_27/calc(var(--frost,0)*0.3)),0_0_0_1px_rgb(22_32_27/calc(var(--frost,0)*0.06))]",
+          ].join(" ")}
+        >
           <Link href="/" aria-label="Dh Photography, home" className="-m-2 p-2">
-            <Logo variant="horizontal" title="" className="h-10 w-auto md:h-11" />
+            <Logo variant="horizontal" title="" className="h-9 w-auto md:h-10" />
           </Link>
 
           <nav aria-label="Main" className="hidden items-center gap-1 md:flex">

@@ -30,9 +30,9 @@
   --text-2xl--line-height: 1.2;
   --text-3xl: clamp(2.125rem, 1.6rem + 2.2vw, 3.25rem);
   --text-3xl--line-height: 1.1;
-  --text-4xl: clamp(2.75rem, 1.8rem + 4vw, 5rem);
+  --text-4xl: clamp(2.25rem, 1.6rem + 3.5vw, 5rem);
   --text-4xl--line-height: 1.04;
-  --text-5xl: clamp(3.5rem, 2rem + 6.5vw, 8rem);
+  --text-5xl: clamp(2.75rem, 1.6rem + 6vw, 8rem);
   --text-5xl--line-height: 1;
 
   /* Layout */
