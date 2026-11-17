@@ -43,6 +43,8 @@ export function Header() {
           "page-x fixed inset-x-0 top-0 z-50 pt-3",
           "transition-[color] duration-300 ease-out",
           onDark ? "text-paper" : "text-ink",
+          // Over a photo: full-strength links with a soft shadow so they read on bright areas.
+          overlay ? "[text-shadow:0_1px_10px_rgb(22_32_27/0.45)] [&_nav_a]:opacity-100" : "",
         ].join(" ")}
       >
         {/* Max width = page container minus its xl side padding, so the logo lines up with page content. */}

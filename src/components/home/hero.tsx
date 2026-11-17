@@ -34,10 +34,15 @@ export function Hero() {
           }
         />
       </picture>
-      {/* Forest-tinted shade so the headline reads on any photo; strongest at the bottom-left. */}
+      {/* Forest-tinted shade so the headline reads on any photo; strongest at the bottom. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgb(30_51_40/0.85),rgb(30_51_40/0.35)_45%,rgb(30_51_40/0.15)_70%,rgb(30_51_40/0.45))]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgb(30_51_40/0.85),rgb(30_51_40/0.35)_45%,rgb(30_51_40/0.1)_70%)]"
+      />
+      {/* Separate top scrim so header links stay readable over bright skies and leaves. */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 -z-10 h-48 bg-[linear-gradient(to_bottom,rgb(22_32_27/0.7),rgb(22_32_27/0.35)_50%,transparent)]"
       />
 
       <div className="page-x mx-auto w-full max-w-page pt-40 pb-12 md:pb-20">
