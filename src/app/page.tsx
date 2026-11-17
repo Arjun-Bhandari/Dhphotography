@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Hero } from "@/components/home/hero";
 import { ManipurCarousel } from "@/components/home/manipur-carousel";
+import { JustifiedGallery } from "@/components/photo/justified-gallery";
 import { Photo } from "@/components/photo/photo";
 import { ButtonLink } from "@/components/ui/button";
 import { packages } from "@/content/packages";
@@ -31,7 +32,7 @@ export default function Home() {
         />
       </section>
 
-      {/* Selected work: natural aspect ratios in columns, nothing cropped */}
+      {/* Selected work: justified rows, equal heights per row, nothing cropped */}
       <section className="page-x mx-auto w-full max-w-page pb-24 md:pb-36">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <h2 className="text-4xl">Selected work</h2>
@@ -42,16 +43,7 @@ export default function Home() {
             See all work
           </Link>
         </div>
-        <div className="mt-10 columns-2 gap-3 sm:gap-4 md:mt-14 md:columns-3 md:gap-6">
-          {home.selected.map((photo) => (
-            <Photo
-              key={photo.id}
-              photo={photo}
-              sizes="(min-width: 48rem) 33vw, 50vw"
-              className="mb-3 break-inside-avoid sm:mb-4 md:mb-6"
-            />
-          ))}
-        </div>
+        <JustifiedGallery photos={home.selected} className="mt-10 md:mt-14" />
       </section>
 
       {/* Manipur: auto-advancing carousel, widths follow each photo */}

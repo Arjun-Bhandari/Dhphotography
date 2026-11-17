@@ -13,7 +13,7 @@ import type { Photo } from "@/content/photos";
 /** Auto-advancing strip; square corners and each photo at its own width (never cropped). */
 export function ManipurCarousel({ photos }: { photos: Photo[] }) {
   return (
-    <AppleCarouselRoot duration={5000}>
+    <AppleCarouselRoot duration={3500}>
       <AppleCarouselContent>
         {photos.map((photo) => (
           <AppleCarouselItem
