@@ -23,6 +23,14 @@ export const metadata: Metadata = {
   },
   description:
     "Wedding, pre-wedding, event and birthday photography and films by Dh Photography. Based in Kanglatongbi, Manipur, and available across India.",
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en_IN",
+    url: "/",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Dh Photography: wedding and event photography from Manipur" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 export const viewport: Viewport = {

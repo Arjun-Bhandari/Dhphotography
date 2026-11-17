@@ -14,7 +14,7 @@ export function BusinessJsonLd() {
       "Wedding, pre-wedding, birthday and event photography and films, based in Kanglatongbi, Manipur and available across India.",
     url: site.url,
     logo: `${site.url}/brand/png/logo-mark-square@512.png`,
-    image: `${site.url}/opengraph-image`,
+    image: `${site.url}/og.png`,
     telephone: site.phone,
     email: site.email,
     address: {
