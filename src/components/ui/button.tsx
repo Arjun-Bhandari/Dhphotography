@@ -5,7 +5,7 @@ type Variant = "primary" | "secondary" | "on-dark";
 
 const base =
   "relative isolate inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden rounded-full px-6 " +
-  "text-base font-medium transition-[background-color,color,transform] duration-(--duration-base) ease-out " +
+  "text-base font-medium transition-[background-color,color,transform] " +
   "active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50";
 
 // Outline fill grows as a circle from the bottom edge, echoing the logo.
@@ -16,9 +16,9 @@ const circleFill =
   "duration-(--duration-hover-fill) ease-smooth motion-reduce:before:transition-none";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-sindoor text-paper hover:bg-sindoor-deep",
+  primary: "bg-sindoor text-paper duration-(--duration-base) ease-out hover:bg-sindoor-deep",
   secondary: `bg-transparent text-ink ring-1 ring-ink/20 ring-inset hover:text-paper ${circleFill}`,
-  "on-dark": "bg-paper text-forest hover:bg-blush",
+  "on-dark": "bg-paper text-forest duration-(--duration-base) ease-out hover:bg-blush",
 };
 
 export function buttonClasses(variant: Variant = "primary", className = "") {
