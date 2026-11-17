@@ -37,7 +37,7 @@ A wedding and event photographer from Kanglatongbi, Manipur, showing couples and
 | Later (i18n) | Noto Sans Devanagari, Noto Sans Meetei Mayek | Loaded only for `/hi`, `/ne`, `/mni` |
 
 **Scale** (ratio ~1.25, base 17px, display steps fluid):
-`xs 13 · sm 15 · base 17 · lg 21 · xl 26 · 2xl clamp(28→36) · 3xl clamp(32→44) · 4xl clamp(36→64) · 5xl clamp(44→96)`
+`xs 13 · sm 15 · base 17 · lg 21 · xl 26 · 2xl clamp(28→36) · 3xl clamp(34→52) · 4xl clamp(44→80) · 5xl clamp(56→128)`
 
 **Rules**
 - Body measure 60–70ch; body line-height 1.6, display 1.0–1.1 with slight negative tracking.
