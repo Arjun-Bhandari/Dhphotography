@@ -10,7 +10,7 @@ export function Footer() {
       <div className="page-x mx-auto max-w-page pt-24 pb-10 md:pt-32">
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-7">
-            <h2 className="max-w-xl text-4xl">Tell Puskar about your day.</h2>
+            <h2 className="max-w-xl text-4xl">Tell me about your day.</h2>
             <p className="mt-6 max-w-md text-blush">
               Share your date and location. You&rsquo;ll get a reply with availability and a quote,
               usually within a day.

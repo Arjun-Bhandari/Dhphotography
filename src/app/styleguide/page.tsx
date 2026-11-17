@@ -21,7 +21,7 @@ const scale = [
   { token: "text-4xl", sample: "Your happiest yes" },
   { token: "text-3xl", sample: "Weddings across India" },
   { token: "text-2xl", sample: "Pre-wedding, wedding and after" },
-  { token: "text-xl", sample: "Shot, edited and delivered by Puskar" },
+  { token: "text-xl", sample: "Shot, edited and delivered with care" },
 ] as const;
 
 const scaleClass: Record<(typeof scale)[number]["token"], string> = {
@@ -80,7 +80,7 @@ export default function StyleguidePage() {
 
       <section className="mt-32 -mx-5 bg-forest px-5 py-24 text-paper md:-mx-8 md:px-8 xl:-mx-12 xl:px-12">
         <Logo variant="stacked" className="w-40" />
-        <h2 className="mt-16 max-w-3xl text-4xl">Every frame shot, edited and delivered by Puskar.</h2>
+        <h2 className="mt-16 max-w-3xl text-4xl">I shoot, edit and deliver every frame myself.</h2>
         <p className="mt-6 max-w-prose text-blush">
           Forest is the dark surface. Blush and paper are the only text colours used on it.
         </p>

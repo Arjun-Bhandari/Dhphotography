@@ -110,3 +110,8 @@ Responsive from 360px; visible focus ring (2px `sindoor`, 2px offset); AA contra
 - **Header:** always visible (sticky). At the top of the page it is flat and transparent; over the first 80px of scroll a floating, rounded, frosted pill fades in (opacity + slight scale only, for smoothness); nav links centred, "Get a quote" on the right. Its edges align with page content at every width.
 - **Large screens:** all content is capped at `--container-page` (1440px) and centred; full-bleed backgrounds (hero, forest sections) still run edge to edge.
 - **Small screens:** hero is ~60svh on phones and ~88svh from `md` (placeholder; revisit with the real hero photo), and display type scales down to 44px at 320px wide.
+
+## Voice
+- The site is Puskar's own: copy speaks in the **first person** ("I shoot, edit and deliver every frame myself", "Tell me about your day").
+- The business is **Dh Photography**: use the brand name, not his personal name, for the business (hero, meta descriptions, WhatsApp greeting).
+- His name appears once, where he introduces himself on the About page ("I am Puskar Dahal, the photographer behind Dh Photography"), and in alt text that describes him in a photo.

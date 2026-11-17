@@ -1,7 +1,7 @@
 // Single source for business details used across the site.
 
 const phone = "+918798613217";
-const whatsappMessage = "Hi Puskar, I'd like to ask about a shoot.";
+const whatsappMessage = "Hi Dh Photography, I'd like to ask about a shoot.";
 
 export const site = {
   name: "Dh Photography",

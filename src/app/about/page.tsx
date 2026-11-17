@@ -6,8 +6,8 @@ export const metadata = { title: "About" };
 export default function Page() {
   return (
     <PageIntro title={site.taglines.personal}>
-      Puskar Dahal, wedding specialist with six years behind the camera. He shoots, edits and
-      delivers every frame himself.
+      I am Puskar Dahal, the photographer behind Dh Photography. A wedding specialist with six
+      years behind the camera, I shoot, edit and deliver every frame myself.
     </PageIntro>
   );
 }

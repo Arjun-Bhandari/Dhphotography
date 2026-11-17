@@ -51,7 +51,7 @@ export function Hero() {
         <h1 className="max-w-3xl text-4xl md:max-w-5xl">{site.taglines.brand}</h1>
         <div className="mt-5 flex flex-col gap-8 md:mt-8 md:flex-row md:items-end md:justify-between">
           <p className="max-w-md text-lg text-paper/85">
-            Weddings, pre-weddings, programmes and birthdays across India, shot by Puskar Dahal.
+            Weddings, pre-weddings, programmes and birthdays across India, by Dh Photography.
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <ButtonLink href="/contact">Get a quote</ButtonLink>

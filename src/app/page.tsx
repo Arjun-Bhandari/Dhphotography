@@ -15,14 +15,14 @@ export default function Home() {
       {/* Intro */}
       <section className="page-x mx-auto grid w-full max-w-page gap-12 py-24 md:grid-cols-12 md:items-center md:gap-8 md:py-36">
         <div className="md:col-span-5">
-          <h2 className="text-4xl">Every frame shot, edited and delivered by Puskar.</h2>
+          <h2 className="text-4xl">I shoot, edit and deliver every frame myself.</h2>
           <p className="mt-6 max-w-prose text-lg text-stone">
-            For six years Puskar Dahal has photographed weddings, pre-weddings, school functions,
-            poojas and birthdays. He is with you from the first ritual to the last dance, then
-            edits and delivers every photo and film himself.
+            For six years I have photographed weddings, pre-weddings, school functions, poojas
+            and birthdays. I am with you from the first ritual to the last dance, and every photo
+            and film you receive is edited by my own hand.
           </p>
           <ButtonLink href="/about" variant="secondary" className="mt-8">
-            About Puskar
+            More about me
           </ButtonLink>
         </div>
         <Photo
@@ -51,7 +51,7 @@ export default function Home() {
         <div className="page-x mx-auto w-full max-w-page">
           <h2 className="text-4xl">Manipur, between shoots</h2>
           <p className="mt-4 max-w-prose text-lg text-stone">
-            Hills, waterfalls, temples and quiet details near home. The same eye he brings to your
+            Hills, waterfalls, temples and quiet details near home. The same eye I bring to your
             day.
           </p>
         </div>

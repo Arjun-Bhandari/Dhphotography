@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Dh Photography",
   },
   description:
-    "Wedding, pre-wedding, event and birthday photography and films by Puskar Dahal. Based in Kanglatongbi, Manipur, and available across India.",
+    "Wedding, pre-wedding, event and birthday photography and films by Dh Photography. Based in Kanglatongbi, Manipur, and available across India.",
 };
 
 export const viewport: Viewport = {
