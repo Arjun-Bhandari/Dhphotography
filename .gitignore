@@ -41,5 +41,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Photos are content, not code: local stand-ins until they move to R2 + the dashboard
-/public/photos/
+# Full-size camera originals (web-sized copies live in public/photos)
+/photos-originals/
+.DS_Store
