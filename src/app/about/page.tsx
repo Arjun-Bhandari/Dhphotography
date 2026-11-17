@@ -33,7 +33,7 @@ export default function Page() {
       {/* Intro: portrait beside the personal tagline */}
       <section className="page-x mx-auto grid w-full max-w-page gap-12 pt-36 pb-24 md:grid-cols-12 md:items-end md:gap-8 md:pt-44 md:pb-36">
         <div className="md:col-span-6">
-          <h1 className="text-5xl">{site.taglines.personal}</h1>
+          <h1 className="text-4xl">{site.taglines.personal}</h1>
           <p className="mt-8 max-w-prose text-lg text-stone">
             I am Puskar Dahal, the photographer behind Dh Photography. A wedding specialist with
             six years behind the camera, I shoot, edit and deliver every frame myself.
@@ -57,7 +57,7 @@ export default function Page() {
       {/* How I work */}
       <section className="bg-mist">
         <div className="page-x mx-auto w-full max-w-page py-24 md:py-32">
-          <h2 className="max-w-2xl text-4xl">One photographer, start to finish</h2>
+          <h2 className="max-w-2xl text-3xl">One photographer, start to finish</h2>
           <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
             {craft.map((item) => (
               <div key={item.title}>
@@ -73,7 +73,7 @@ export default function Page() {
       <section className="page-x mx-auto grid w-full max-w-page gap-12 py-24 md:grid-cols-12 md:items-center md:gap-8 md:py-36">
         <Photo photo={photos.puskar} sizes="(min-width: 48rem) 50vw, 100vw" className="md:col-span-6" />
         <div className="md:col-span-5 md:col-start-8">
-          <h2 className="text-4xl">Behind the camera</h2>
+          <h2 className="text-3xl">Behind the camera</h2>
           <p className="mt-6 max-w-prose text-lg text-stone">
             I shoot on a Canon R. Between weddings you will find me photographing the hills,
             waterfalls and festivals of Manipur. It keeps my eye fresh for your day.
@@ -91,7 +91,7 @@ export default function Page() {
       <section className="page-x mx-auto w-full max-w-page pb-24 md:pb-36">
         <div className="grid gap-12 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-6">
-            <h2 className="text-4xl">Follow along</h2>
+            <h2 className="text-3xl">Follow along</h2>
             <p className="mt-4 max-w-prose text-lg text-stone">
               New shoots go up on Instagram and Facebook first. Wedding films live on YouTube.
             </p>
