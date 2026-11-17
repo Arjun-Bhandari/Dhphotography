@@ -2,10 +2,11 @@ import Link from "next/link";
 import type { ComponentProps } from "react";
 
 type Variant = "primary" | "secondary" | "on-dark" | "on-dark-ghost";
+type Size = "md" | "lg";
 
 const base =
-  "relative isolate inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden rounded-full px-6 " +
-  "text-base font-medium btn-motion " +
+  "relative isolate inline-flex items-center justify-center gap-2 overflow-hidden rounded-full " +
+  "font-medium btn-motion " +
   "hover:-translate-y-px active:translate-y-0 active:scale-[0.97] active:shadow-none " +
   "disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none";
 
@@ -29,22 +30,30 @@ const variants: Record<Variant, string> = {
     "hover:text-forest hover:shadow-btn-dark-hover",
 };
 
-export function buttonClasses(variant: Variant = "primary", className = "") {
-  return `${base} ${circleFill} ${variants[variant]} ${className}`;
+const sizes: Record<Size, string> = {
+  md: "min-h-11 px-6 text-base",
+  // Hero and other headline calls to action.
+  lg: "min-h-14 px-8 text-lg",
+};
+
+export function buttonClasses(variant: Variant = "primary", className = "", size: Size = "md") {
+  return `${base} ${sizes[size]} ${circleFill} ${variants[variant]} ${className}`;
 }
 
 export function Button({
   variant,
+  size,
   className,
   ...props
-}: ComponentProps<"button"> & { variant?: Variant }) {
-  return <button className={buttonClasses(variant, className)} {...props} />;
+}: ComponentProps<"button"> & { variant?: Variant; size?: Size }) {
+  return <button className={buttonClasses(variant, className, size)} {...props} />;
 }
 
 export function ButtonLink({
   variant,
+  size,
   className,
   ...props
-}: ComponentProps<typeof Link> & { variant?: Variant }) {
-  return <Link className={buttonClasses(variant, className)} {...props} />;
+}: ComponentProps<typeof Link> & { variant?: Variant; size?: Size }) {
+  return <Link className={buttonClasses(variant, className, size)} {...props} />;
 }

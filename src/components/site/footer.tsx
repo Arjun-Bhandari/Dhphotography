@@ -1,6 +1,6 @@
 import { cacheLife } from "next/cache";
 import Link from "next/link";
-import { Logo } from "@/components/brand/logo";
+import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { navigation, site } from "@/lib/site";
 
@@ -66,7 +66,7 @@ export function Footer() {
         </div>
 
         <div className="mt-24 flex flex-col gap-8 md:mt-32 md:flex-row md:items-end md:justify-between">
-          <Logo variant="stacked" className="w-36" />
+          <Image src="/brand/logo-stacked-light.svg" alt="Dh Photography" width={144} height={187} unoptimized className="w-36 bg-transparent" />
           <p className="text-sm text-paper/60">
             © <CopyrightYear /> {site.name}. Based in {site.location}, shooting across India.
           </p>

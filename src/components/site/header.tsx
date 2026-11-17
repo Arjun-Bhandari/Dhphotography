@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Logo } from "@/components/brand/logo";
+import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { navigation } from "@/lib/site";
 import { MenuToggle, MobileMenuPanel } from "./mobile-menu";
@@ -64,7 +64,30 @@ export function Header() {
           />
 
           <Link href="/" aria-label="Dh Photography, home" className="-m-2 justify-self-start p-2">
-            <Logo variant="horizontal" title="" className="h-9 w-auto md:h-10" />
+            {/*
+              Logo files (cached once for the whole site) instead of inline SVG; the light and
+              dark versions crossfade with the header's text colour.
+            */}
+            <span className="relative block h-9 w-[128px] md:h-10 md:w-[143px]">
+              <Image
+                src="/brand/logo-horizontal-light.svg"
+                alt=""
+                width={143}
+                height={40}
+                unoptimized
+                preload
+                className={`absolute inset-0 size-full bg-transparent transition-opacity duration-300 ${onDark ? "opacity-100" : "opacity-0"}`}
+              />
+              <Image
+                src="/brand/logo-horizontal.svg"
+                alt=""
+                width={143}
+                height={40}
+                unoptimized
+                preload
+                className={`absolute inset-0 size-full bg-transparent transition-opacity duration-300 ${onDark ? "opacity-0" : "opacity-100"}`}
+              />
+            </span>
           </Link>
 
           <nav aria-label="Main" className="hidden items-center gap-1 md:flex">

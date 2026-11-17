@@ -54,8 +54,10 @@ export function Hero() {
             Weddings, pre-weddings, programmes and birthdays across India, by Dh Photography.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <ButtonLink href="/contact">Get a quote</ButtonLink>
-            <ButtonLink href="/work" variant="on-dark-ghost">
+            <ButtonLink href="/contact" size="lg">
+              Get a quote
+            </ButtonLink>
+            <ButtonLink href="/work" variant="on-dark-ghost" size="lg">
               See the work
             </ButtonLink>
           </div>

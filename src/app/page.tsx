@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/home/hero";
+import { BusinessJsonLd } from "@/components/site/business-json-ld";
 import { ManipurCarousel } from "@/components/home/manipur-carousel";
 import { JustifiedGallery } from "@/components/photo/justified-gallery";
 import { Photo } from "@/components/photo/photo";
@@ -10,6 +11,7 @@ import { home, photos } from "@/content/photos";
 export default function Home() {
   return (
     <>
+      <BusinessJsonLd />
       <Hero />
 
       {/* Intro */}
