@@ -108,4 +108,4 @@ Responsive from 360px; visible focus ring (2px `sindoor`, 2px offset); AA contra
 ## Site shell
 - **Header:** always visible (sticky). At the top of the page it is flat and transparent; over the first 80px of scroll a floating, rounded, frosted pill fades in (opacity + slight scale only, for smoothness); nav links centred, "Get a quote" on the right. Its edges align with page content at every width.
 - **Large screens:** all content is capped at `--container-page` (1440px) and centred; full-bleed backgrounds (hero, forest sections) still run edge to edge.
-- **Small screens:** hero is ~72svh on phones (full height from `md`), and display type scales down to 44px at 320px wide.
+- **Small screens:** hero is ~60svh on phones and ~88svh from `md` (placeholder; revisit with the real hero photo), and display type scales down to 44px at 320px wide.
