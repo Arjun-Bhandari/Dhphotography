@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+/* Design tokens: see specs/03-design-foundations.md */
+@theme static {
+  /* Colour */
+  --color-paper: #ffffff;
+  --color-mist: #f2f3ef;
+  --color-ink: #16201b;
+  --color-stone: #5e6862;
+  --color-forest: #1e3328;
+  --color-sindoor: #e41e00;
+  --color-sindoor-deep: #c41a00;
+  --color-blush: #f7c0b9;
+
+  /* shadcn-style aliases used by registry components (apple-carousel), mapped to our palette */
+  --color-foreground: var(--color-ink);
+  --color-muted: var(--color-mist);
+  --color-muted-foreground: var(--color-stone);
+  --color-ring: var(--color-sindoor);
+
+  /* Type */
+  --font-display: var(--font-hedvig), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.55;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.3125rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.625rem;
+  --text-xl--line-height: 1.3;
+  --text-2xl: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+  --text-2xl--line-height: 1.2;
+  --text-3xl: clamp(2.125rem, 1.6rem + 2.2vw, 3.25rem);
+  --text-3xl--line-height: 1.1;
+  --text-4xl: clamp(2.25rem, 1.6rem + 3.5vw, 5rem);
+  --text-4xl--line-height: 1.04;
+  --text-5xl: clamp(2.75rem, 1.6rem + 6vw, 8rem);
+  --text-5xl--line-height: 1;
+
+  /* Layout */
+  --container-page: 90rem;
+  --container-prose: 38rem;
+
+  /* Shape: photos square, panels 12px, interactive fully round */
+  --radius-panel: 0.75rem;
+
+  /* Shadows: buttons only, tinted to their surface (never generic grey) */
+  --shadow-btn: 0 1px 2px rgb(22 32 27 / 0.06), 0 3px 8px -2px rgb(22 32 27 / 0.1);
+  --shadow-btn-hover: 0 2px 4px rgb(22 32 27 / 0.08), 0 10px 24px -6px rgb(22 32 27 / 0.22);
+  --shadow-btn-strong: 0 1px 2px rgb(22 32 27 / 0.1), 0 4px 10px -2px rgb(22 32 27 / 0.16);
+  --shadow-btn-strong-hover: 0 2px 4px rgb(22 32 27 / 0.12), 0 12px 26px -6px rgb(22 32 27 / 0.28);
+  --shadow-btn-dark: 0 1px 2px rgb(0 0 0 / 0.25), 0 4px 12px -2px rgb(0 0 0 / 0.3);
+  --shadow-btn-dark-hover: 0 2px 4px rgb(0 0 0 / 0.28), 0 12px 28px -6px rgb(0 0 0 / 0.45);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-smooth: cubic-bezier(0.33, 1, 0.68, 1);
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-slow: 480ms;
+  --duration-hover-fill: 700ms;
+  --duration-menu-open: 700ms;
+  --duration-menu-close: 500ms;
+  --duration-develop: 900ms;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-blush);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sindoor);
+    outline-offset: 2px;
+  }
+
+  img {
+    background: var(--color-mist);
+  }
+}
+
+@utility page-x {
+  padding-inline: 1.25rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+
+  @media (width >= 80rem) {
+    padding-inline: 3rem;
+  }
+}
+
+/*
+ * Button motion: each property gets its own timing so a slow colour fill
+ * never makes the hover lift or the press feel laggy.
+ * Variants tune the colour timing with --btn-color-duration / --btn-color-ease.
+ */
+@utility btn-motion {
+  transition:
+    background-color var(--btn-color-duration, var(--duration-base)) var(--btn-color-ease, var(--ease-out)),
+    color var(--btn-color-duration, var(--duration-base)) var(--btn-color-ease, var(--ease-out)),
+    box-shadow var(--duration-base) var(--ease-out),
+    translate var(--duration-base) var(--ease-out),
+    scale var(--duration-fast) var(--ease-out);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Photo "develop": a blush wash resolves into the photograph the first time it is shown. */
+@utility develop {
+  animation: develop var(--duration-develop) var(--ease-out) both;
+}
+
+@keyframes develop {
+  from {
+    opacity: 0;
+    filter: saturate(0.2) brightness(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
